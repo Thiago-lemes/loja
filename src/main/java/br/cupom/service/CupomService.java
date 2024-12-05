@@ -3,18 +3,15 @@ package br.cupom.service;
 import br.cupom.dto.CupomDTO;
 import br.cupom.entity.CupomEntity;
 import br.cupom.repository.CupomRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
 @Service
 public class CupomService {
-
-    private final CupomRepository repository;
-
-    public CupomService(CupomRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private CupomRepository repository;
 
     public CupomEntity cadastrar(CupomDTO dto) {
         validarDadosDoCupom(dto);
